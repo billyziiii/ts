@@ -1,0 +1,135 @@
+[Nest] 24288  - 2025/07/20 下午7:26:29     LOG [NestFactory] Starting Nest application...
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [InstanceLoader] PassportModule dependencies initialized +16ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [InstanceLoader] ConfigHostModule dependencies initialized +3ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [InstanceLoader] JwtModule dependencies initialized +0ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [InstanceLoader] AppModule dependencies initialized +1ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [InstanceLoader] ConfigModule dependencies initialized +0ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [InstanceLoader] GamesModule dependencies initialized +1ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [InstanceLoader] AuthModule dependencies initialized +0ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [RoutesResolver] AppController {/api}: +3ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [RouterExplorer] Mapped {/api, GET} route +3ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [RoutesResolver] AuthController {/api/auth}: +0ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [RouterExplorer] Mapped {/api/auth/register, POST} route +0ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [RouterExplorer] Mapped {/api/auth/login, POST} route +1ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [RouterExplorer] Mapped {/api/auth/me, GET} route +0ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [RoutesResolver] GamesController {/api/games}: +0ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [RouterExplorer] Mapped {/api/games/slot/play, POST} route +1ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [RouterExplorer] Mapped {/api/games/coin-flip/play, POST} route +0ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [RouterExplorer] Mapped {/api/games/dice-roll/play, POST} route +0ms
+[Nest] 24288  - 2025/07/20 下午7:26:30     LOG [NestApplication] Nest application successfully started +2ms
+[Nest] 24288  - 2025/07/20 下午7:27:00   ERROR [ExceptionsHandler] PrismaClientValidationError:
+Invalid `prisma.user.update()` invocation in
+C:\Users\kaich\Desktop\lucky-coin-casino\apps\server\src\games\games.service.ts:116:25
+
+  113
+  114 const newBalance = Math.floor(user.coinBalance + winnings); // 确保newBalance是整数
+  115
+→ 116 await prisma.user.update({
+        where: {
+          id: "cmdbbzwxj0001vyy0amvjd8ok"
+        },
+        data: {
+      +   coinBalance: Int
+        }
+      })
+
+Argument `coinBalance` is missing.
+    at throwValidationException (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\core\errorRendering\throwValidationException.ts:45:9)
+    at ri.handleRequestError (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\RequestHandler.ts:202:7)
+    at ri.handleAndLogRequestError (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\RequestHandler.ts:174:12)
+    at ri.request (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\RequestHandler.ts:143:12)
+    at async l (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:862:24)
+    at async <anonymous> (C:\Users\kaich\Desktop\lucky-coin-casino\apps\server\src\games\games.service.ts:116:7)
+    at async Proxy._transactionWithCallback (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:732:18)
+    at async GamesController.playDiceRoll (C:\Users\kaich\Desktop\lucky-coin-casino\apps\server\src\games\games.controller.ts:32:20)
+    at async C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@nestjs+core@11.1.5_@nestjs_d5af0b00dd249ba01eff1b1c70e5f934\node_modules\@nestjs\core\router\router-execution-context.js:46:28
+    at async C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@nestjs+core@11.1.5_@nestjs_d5af0b00dd249ba01eff1b1c70e5f934\node_modules\@nestjs\core\router\router-proxy.js:9:17 {
+  clientVersion: '6.12.0'
+}
+[Nest] 24288  - 2025/07/20 下午7:27:06   ERROR [ExceptionsHandler] PrismaClientValidationError:
+Invalid `prisma.user.update()` invocation in
+C:\Users\kaich\Desktop\lucky-coin-casino\apps\server\src\games\games.service.ts:75:25
+
+  72
+  73 const newBalance = Math.floor(user.coinBalance + winnings); // 确保newBalance是整数
+  74
+→ 75 await prisma.user.update({
+       where: {
+         id: "cmdbbzwxj0001vyy0amvjd8ok"
+       },
+       data: {
+     +   coinBalance: Int
+       }
+     })
+
+Argument `coinBalance` is missing.
+    at throwValidationException (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\core\errorRendering\throwValidationException.ts:45:9)
+    at ri.handleRequestError (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\RequestHandler.ts:202:7)
+    at ri.handleAndLogRequestError (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\RequestHandler.ts:174:12)
+    at ri.request (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\RequestHandler.ts:143:12)
+    at async l (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:862:24)
+    at async <anonymous> (C:\Users\kaich\Desktop\lucky-coin-casino\apps\server\src\games\games.service.ts:75:7)
+    at async Proxy._transactionWithCallback (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:732:18)
+    at async GamesController.playCoinFlip (C:\Users\kaich\Desktop\lucky-coin-casino\apps\server\src\games\games.controller.ts:24:20)
+    at async C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@nestjs+core@11.1.5_@nestjs_d5af0b00dd249ba01eff1b1c70e5f934\node_modules\@nestjs\core\router\router-execution-context.js:46:28
+    at async C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@nestjs+core@11.1.5_@nestjs_d5af0b00dd249ba01eff1b1c70e5f934\node_modules\@nestjs\core\router\router-proxy.js:9:17 {
+  clientVersion: '6.12.0'
+}
+[Nest] 24288  - 2025/07/20 下午7:35:03   ERROR [ExceptionsHandler] PrismaClientValidationError:
+Invalid `prisma.user.update()` invocation in
+C:\Users\kaich\Desktop\lucky-coin-casino\apps\server\src\games\games.service.ts:75:25
+
+  72
+  73 const newBalance = Math.floor(user.coinBalance + winnings); // 确保newBalance是整数
+  74
+→ 75 await prisma.user.update({
+       where: {
+         id: "cmdbbzwxj0001vyy0amvjd8ok"
+       },
+       data: {
+     +   coinBalance: Int
+       }
+     })
+
+Argument `coinBalance` is missing.
+    at throwValidationException (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\core\errorRendering\throwValidationException.ts:45:9)
+    at ri.handleRequestError (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\RequestHandler.ts:202:7)
+    at ri.handleAndLogRequestError (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\RequestHandler.ts:174:12)
+    at ri.request (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\RequestHandler.ts:143:12)
+    at async l (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:862:24)
+    at async <anonymous> (C:\Users\kaich\Desktop\lucky-coin-casino\apps\server\src\games\games.service.ts:75:7)
+    at async Proxy._transactionWithCallback (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:732:18)
+    at async GamesController.playCoinFlip (C:\Users\kaich\Desktop\lucky-coin-casino\apps\server\src\games\games.controller.ts:24:20)
+    at async C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@nestjs+core@11.1.5_@nestjs_d5af0b00dd249ba01eff1b1c70e5f934\node_modules\@nestjs\core\router\router-execution-context.js:46:28
+    at async C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@nestjs+core@11.1.5_@nestjs_d5af0b00dd249ba01eff1b1c70e5f934\node_modules\@nestjs\core\router\router-proxy.js:9:17 {
+  clientVersion: '6.12.0'
+}
+[Nest] 24288  - 2025/07/20 下午7:35:17   ERROR [ExceptionsHandler] PrismaClientValidationError:
+Invalid `prisma.user.update()` invocation in
+C:\Users\kaich\Desktop\lucky-coin-casino\apps\server\src\games\games.service.ts:75:25
+
+  72
+  73 const newBalance = Math.floor(user.coinBalance + winnings); // 确保newBalance是整数
+  74
+→ 75 await prisma.user.update({
+       where: {
+         id: "cmdbbzwxj0001vyy0amvjd8ok"
+       },
+       data: {
+     +   coinBalance: Int
+       }
+     })
+
+Argument `coinBalance` is missing.
+    at throwValidationException (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\core\errorRendering\throwValidationException.ts:45:9)
+    at ri.handleRequestError (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\RequestHandler.ts:202:7)
+    at ri.handleAndLogRequestError (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\RequestHandler.ts:174:12)
+    at ri.request (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\RequestHandler.ts:143:12)
+    at async l (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:862:24)
+    at async <anonymous> (C:\Users\kaich\Desktop\lucky-coin-casino\apps\server\src\games\games.service.ts:75:7)
+    at async Proxy._transactionWithCallback (C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@prisma+client@6.12.0_prism_852c2f508fa5d5c04099a9cee124d4df\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:732:18)
+    at async GamesController.playCoinFlip (C:\Users\kaich\Desktop\lucky-coin-casino\apps\server\src\games\games.controller.ts:24:20)
+    at async C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@nestjs+core@11.1.5_@nestjs_d5af0b00dd249ba01eff1b1c70e5f934\node_modules\@nestjs\core\router\router-execution-context.js:46:28
+    at async C:\Users\kaich\Desktop\lucky-coin-casino\node_modules\.pnpm\@nestjs+core@11.1.5_@nestjs_d5af0b00dd249ba01eff1b1c70e5f934\node_modules\@nestjs\core\router\router-proxy.js:9:17 {
+  clientVersion: '6.12.0'
+}

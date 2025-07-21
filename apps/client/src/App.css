@@ -1,0 +1,168 @@
+/* General App Styles */
+.App {
+  text-align: center;
+  background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #2D2D2D 100%);
+  min-height: 100vh;
+  font-family: 'Cinzel', serif;
+  color: #FFD700;
+  position: relative;
+}
+
+/* 添加赌场氛围的背景效果 */
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Golden text color for special elements */
+.text-golden {
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* 添加更多赌场风格的类 */
+.casino-title {
+  font-family: 'Cinzel', serif;
+  background: linear-gradient(135deg, #FFD700 0%, #FFC107 50%, #FF8F00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.casino-card {
+  background: rgba(45, 45, 45, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid #FFD700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.casino-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+/* Button Styles */
+.btn {
+  @apply font-semibold py-3 px-6 rounded-xl transition-all duration-300 ease-in-out transform;
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.025em;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.25);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
+  color: #000;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #FFC107 0%, #FF8F00 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+  @apply bg-casino-black/60 text-golden-100 border border-golden-400/30 rounded-xl py-3 px-4;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  letter-spacing: -0.025em;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1), 0 0 20px rgba(255, 215, 0, 0.2);
+  background-color: rgba(10, 10, 10, 0.8);
+  transform: translateY(-1px);
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="number"]::placeholder {
+  color: rgba(255, 215, 0, 0.4);
+  font-weight: 400;
+}
+
+/* Game Container */
+.game-container {
+  @apply p-8 bg-casino-cardGray/80 backdrop-blur-sm rounded-xl shadow-golden-lg;
+  border: 2px solid #FFD700;
+  font-family: 'Cinzel', serif;
+}
+
+/* Dashboard Styles */
+.dashboard {
+  @apply p-8;
+}
+
+.dashboard h1 {
+  @apply text-4xl font-bold text-golden mb-4;
+}
+
+.dashboard p {
+  @apply text-lg text-gray-300;
+}
+
+/* Game Selection Styles */
+.game-selection {
+  @apply mt-8 grid grid-cols-1 md:grid-cols-3 gap-6;
+}
+
+.game-card {
+  @apply bg-gray-800 p-6 rounded-lg text-center cursor-pointer transition duration-300;
+  border: 1px solid #ffd700;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  border-color: #ffd700;
+}
+
+.game-card h2 {
+  @apply text-2xl font-bold text-golden mb-2;
+}
+
+/* Back Button */
+.back-button {
+    @apply absolute top-4 left-4 text-golden hover:text-white transition duration-300;
+    font-size: 1.2rem; /* Adjust size as needed */
+    z-index: 10; /* Ensure it's above other content */
+}
